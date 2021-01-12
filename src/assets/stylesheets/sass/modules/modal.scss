@@ -1,0 +1,75 @@
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-small-white {
+    background-color: #fefefe;
+    border-radius: 10px;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+@media screen and (max-width:$mobile-widest) {
+    .modal-small-white {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .modal-small-white {
+        width: 500px;
+    }
+}
+
+.modal-text-center {
+    justify-self: center;
+}
+
+.modal-btn-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.modal-btn-close:hover, .modal-btn-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-logo-small {
+    width:100px;
+    height:75px;
+}
+
+.modal-tabs {
+    border-bottom: 1px solid $light-gray;
+    font-weight: none;
+    color:$light-gray;
+    font-size:18px;
+}
+
+.modal-tab {
+    display:inline;
+    margin-left:10px;
+}
+
+.modal-tab:hover {
+    cursor: pointer;
+}
+
+.is-tab-selected {
+    color:$primary-color;
+    border-bottom:2px solid $primary-color;
+}

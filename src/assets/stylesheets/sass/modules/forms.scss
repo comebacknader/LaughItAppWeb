@@ -1,0 +1,115 @@
+.form-logo-small {
+    width:100px;
+    height:75px;
+}
+
+.form-errors-list {
+    border: 2px solid $brighter-primary;
+    border-radius: 5px;
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .form-errors-list {
+        width: 450px;
+    }    
+}
+
+@media screen and (max-width:$mobile-widest) {
+    .form-errors-list {
+        width: 250px;
+    }    
+}
+
+.form-errors-list li {
+    color:$brighter-primary;
+    font-size: 14px;
+}
+
+.form-input {
+    height:30px;
+    border:0px;
+    border-bottom: 1px solid $light-gray;
+}
+
+.form-input:focus {
+    outline-width: 0;
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .form-input {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width:$mobile-widest) {
+    .form-input {
+        width: 250px;
+    }    
+}
+
+.form-input-error {
+    color:red;
+    font-size:14px;
+}
+
+.form-link {
+    color:blue;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .form-link {
+        width: 450px;
+    }
+}
+
+.form-btn {
+    border: 1px solid $primary-color;
+    background-color: $primary-color; 
+    color: white;
+    border-radius: 5px;
+    transition: all 2s ease;
+}
+
+.form-btn:hover {
+    background-color: $brighter-primary; 
+    cursor: pointer;
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .form-btn {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width:$mobile-widest) {
+    .form-btn {
+        width: 200px;
+    }
+}
+
+.form-input-underline-error {
+    border-bottom:1px solid red;
+}
+
+.form-pending-status {
+    background-color: rgba(15, 115, 230, 0.781);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-top: 10px; 
+}
+
+@media screen and (min-width:$mobile-widest) {
+    .form-pending-status {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width:$mobile-widest) {
+    .form-pending-status {
+        width: 250px;
+    }
+}
+
+

@@ -1,0 +1,25 @@
+body { 
+    margin: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+
+@font-face {
+    font-family: LuckiestGuy;
+    src: url('../../fonts/LuckiestGuy.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: LifeSavers;
+    src: url('../../fonts/LifeSavers.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Monoton;
+    src: url('../../fonts/Monoton.ttf') format('truetype');
+}

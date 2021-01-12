@@ -1,0 +1,54 @@
+$primary-color: rgb(87, 87, 87);
+//$primary-color: rgb(185, 69, 69);
+$brighter-primary: rgb(134, 134, 134);
+$light-gray: rgb(187, 187, 187);
+$darker-gray: rgb(146, 146, 146);
+$primary-gray: #F2F2F2;
+$secondary-blue: #B3E1FB;
+
+.t-c-black {
+  color: #000000;
+}
+
+.t-c-white {
+  color: white;
+}
+
+.t-bgc-white {
+  background-color: white;
+}
+
+.t-bgc-primary-gray {
+  background-color: $primary-gray;
+}
+
+.t-bgc-secondary-blue {
+  background-color: $secondary-blue;
+}
+
+.t-small-blue-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  border-color: $secondary-blue;
+  background-color: $secondary-blue;
+}
+
+.t-big-blue-dot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border-color: $secondary-blue;
+  background-color: $secondary-blue;
+}
+
+.t-big-blue-dot-text {
+  align-self: center;
+  color: white;
+  font-size: 30;
+  font-weight: bold;
+}
+
+.t-c-darker-gray {
+  color: $darker-gray;
+}
