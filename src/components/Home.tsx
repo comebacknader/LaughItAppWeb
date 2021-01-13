@@ -45,12 +45,13 @@ export default function Home() {
           </div>
         </div>
         { state === 'empty-impressions' && impressions.length === 0 ? 
-        <div className="l-flex-dir-row l-jus-con-c l-ali-ite-c l-h-500 l-w-500">
+        <div className="l-flex l-flex-dir-row l-jus-con-c l-ali-ite-c l-h-500">
           <p className="t-f-s-40 t-c-darker-gray">No impressions added.</p>
-          <button 
-            className="t-big-blue-dot l-mt-13 l-ml-40"
-            onClick={newImpression} />
-            <p className="t-big-blue-dot-text">+</p>
+          <div
+            className="l-flex t-big-blue-dot l-mt-13 l-ml-40 l-jus-con-c"
+            onClick={newImpression} >
+            <p className="t-big-blue-dot-text l-mt-22">+</p>
+          </div>
         </div>
         :
         <div className="l-mt-30 l-ml-40 l-w-500">
@@ -65,9 +66,9 @@ export default function Home() {
                 autoFocus />
             </div>  
           : <></> }
-          <button className="t-big-blue-dot l-ali-sel-flex-e l-mt-20" 
+          <button className="t-big-blue-dot l-ali-sel-flex-e l-mt-20 l-jus-con-c" 
             onClick={newImpression}>
-            <p className="t-big-blue-dot-text">+</p>
+            <p className="t-big-blue-dot-text l-mt-20">+</p>
           </button>
         </div>
         }
