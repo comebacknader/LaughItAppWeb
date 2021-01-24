@@ -82,6 +82,10 @@
     margin-bottom: 10px;
 }
 
+.l-mt-5 {
+    margin-top: 5px;
+}
+
 .l-mt-10 {
     margin-top: 10px;
 }
@@ -164,10 +168,20 @@
     height: 90vh;
 }
 
+.l-w-100p {
+    width: 100%;
+}
+
+/* Border */
+
+.l-bor-0 {
+    border: 0px;
+}
+
 .l-bor-rad-10 {
     border-radius: 10px;
 }
 
-.l-w-100p {
-    width: 100%;
+.l-bor-l-10-blue {
+    border-left: 10px solid $secondary-blue; 
 }

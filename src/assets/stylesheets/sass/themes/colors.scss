@@ -43,6 +43,10 @@ $secondary-blue: #B3E1FB;
   background-color: $secondary-blue;
 }
 
+.t-big-blue-dot:hover {
+  cursor: pointer;
+}
+
 .t-big-blue-dot-text {
   align-self: center;
   color: white;

@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ListOfImpressions from "./ListOfImpressions";
-const microphone = require('../assets/images/microphone.svg');
+const microphone = require("../assets/images/microphone.svg");
 import "../assets/stylesheets/css/main.css";
 
 export default function Home() {
   const [ impressions, setImpressions ] = useState<string[]>([])
   const [ state, setState ] = useState<'new-impression'|'idle'|'empty-impressions'>('empty-impressions')
-  const [ impression, setImpression ] = useState<string>('')
 
   const getAllImpressions = async () => {
     let rawResponse: any = await fetch('', {
@@ -25,9 +24,11 @@ export default function Home() {
   }
 
   const enterImpression = (e: any) => { 
-    if (e.nativeEvent.key === 'Enter') {
-      setImpressions([ ...impressions, impression])
-      setImpression('') 
+    let impression = e.target.value
+    console.log('impression: ', impression)
+    if (e.key === 'Enter') {
+      setImpressions([ ...impressions, impression ])
+      console.log('impressions: ', impressions)
       setState('idle')
     }
   }
@@ -57,21 +58,22 @@ export default function Home() {
         <div className="l-mt-30 l-ml-40 l-w-500">
           <ListOfImpressions impressions={impressions} />
           { state === 'new-impression' ? 
-            <div className="l-flex-dir-row l-mt-10 t-bgc-white l-bor-rad-10 l-p-10 l-w-500">
-              <div className="l-w-5 l-h-50 t-bgc-secondary-blue"></div>
-              <input type="text"
-                className="l-ml-50 t-f-s-20 l-ali-ite-c l-w-400 l-pl-10"
-                onKeyPress={enterImpression} 
-                value={impression}
-                autoFocus />
+            <div className="l-flex-dir-col l-mt-10 t-bgc-white l-bor-rad-10 l-p-10 l-pl-10 l-w-500">
+              <div className="l-bor-l-10-blue l-h-100">
+                <input type="text"
+                  className="l-ml-50 t-f-s-20 l-ali-ite-c l-w-400 l-pl-10 l-bor-0"
+                  onKeyPress={enterImpression} 
+                  autoFocus />
+              </div>
             </div>  
           : <></> }
           <button className="t-big-blue-dot l-ali-sel-flex-e l-mt-20 l-jus-con-c" 
             onClick={newImpression}>
-            <p className="t-big-blue-dot-text l-mt-20">+</p>
+            <p className="t-big-blue-dot-text l-mt-5">+</p>
           </button>
         </div>
         }
+         
       </div>
     </div>
   )

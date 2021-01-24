@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Root from "./Root";
-import Home from './components/Home';
+import Impressions from './components/Impressions';
 
 class App extends React.Component<any, any> {
     render() {
@@ -10,7 +10,7 @@ class App extends React.Component<any, any> {
             <>
                 <Router>
                     <Switch> 
-                        <Route exact path="/" component={Home} />
+                        <Route exact path="/" component={Impressions} />
                     </Switch>
                 </Router>
             </>
