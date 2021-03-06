@@ -10,9 +10,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Installing packages...'
-                bat 'npm install'
+                sh 'npm install'
                 echo 'Building web application...'
-                bat 'npm run build'
+                sh 'npm run build'
            }
         }
         stage('Test') {
@@ -25,7 +25,7 @@ pipeline {
                 echo 'Deploy step activated.'
                 dir('dist') {
                     withAWS(region: 'us-west-1', credentials: 'lia-web-s3') {
-                        bat "dir"
+                        sh "dir"
                         s3Delete(bucket: 'lia-s3-webclient-dev',  path: '**/*')
                         s3Upload(bucket: 'lia-s3-webclient-dev', includePathPattern: '**/*')
                     }
