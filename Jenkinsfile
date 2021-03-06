@@ -1,12 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Repository') {
-            steps {
-                echo 'Cloning repository from Github' 
-                git url: 'https://github.com/comebacknader/LaughItAppWeb.git'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Installing packages...'
