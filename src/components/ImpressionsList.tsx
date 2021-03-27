@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
 import "../assets/stylesheets/css/main.css";
 
-export default function ListOfImpressions(props) {
-  const impressions = props.impressions
+export default function ImpressionsList(props) {
+  const impressions: Array<string> = props.impressions
   
-  useEffect(() => {
-    console.log('ListOfImpressions useEffect impressions: ', impressions)
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <>

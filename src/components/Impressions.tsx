@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from "react";
-import ListOfImpressions from "./ListOfImpressions";
-const microphone = require("../assets/images/microphone.svg");
-import "../assets/stylesheets/css/main.css";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import ImpressionsList from './ImpressionsList'
+import SideBar from './SideBar'
+import '../assets/stylesheets/css/main.css'
 
-export default function Home() {
-  const [ impressions, setImpressions ] = useState<string[]>([])
+import { getImpressions } from '../redux/actions/impressions'
+
+export default function Impressions() {
   const [ state, setState ] = useState<'new-impression'|'idle'|'empty-impressions'>('empty-impressions')
-
-  const getAllImpressions = async () => {
-    let rawResponse: any = await fetch('', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
+  const impressions = useSelector((state: any) => state.impressions) 
+  // const impressions: Array<string> = [] 
+  useEffect(() => {
+    console.log("impressions: ", impressions)
+    const promise = new Promise((resolve, reject) => {
+      reject('Imam is not coming')
+      resolve('Imam is coming')
     })
-    let jsonResponse = await rawResponse.json()
-    console.log(JSON.stringify(jsonResponse, null, 2))
+    promise.then((res) => {console.log(res)}, (err) => {console.log(err)})
+    checkImamArrived()
+  })
+
+  const checkImamArrived = async () => {
+    let status = await new Promise((resolve, reject) => {
+      resolve('Imam is coming')
+    })
+    console.log("status: ", status)
   }
 
   const newImpression = async () => {
@@ -27,7 +35,6 @@ export default function Home() {
     let impression = e.target.value
     console.log('impression: ', impression)
     if (e.key === 'Enter') {
-      setImpressions([ ...impressions, impression ])
       console.log('impressions: ', impressions)
       setState('idle')
     }
@@ -35,9 +42,7 @@ export default function Home() {
 
   return (
     <div className="l-flex l-flex-dir-row l-vh-100 l-vw-100">
-      <div className="l-flex l-ali-ite-s l-jus-con-c l-pt-40 l-w-90 t-bgc-white">
-        <img src={microphone} />
-      </div>
+      <SideBar />
       <div className="l-flex l-flex-dir-col t-bgc-primary-gray l-vw-100">
         <div className="l-flex l-mt-40 l-ml-40 l-w-400">
           <div className="t-small-blue-dot l-mt-20 l-mr-10"></div>
@@ -56,7 +61,7 @@ export default function Home() {
         </div>
         :
         <div className="l-mt-30 l-ml-40 l-w-500">
-          <ListOfImpressions impressions={impressions} />
+          <ImpressionsList impressions={impressions} />
           { state === 'new-impression' ? 
             <div className="l-flex-dir-col l-mt-10 t-bgc-white l-bor-rad-10 l-p-10 l-pl-10 l-w-500">
               <div className="l-bor-l-10-blue l-h-100">
@@ -69,7 +74,7 @@ export default function Home() {
           : <></> }
           <button className="t-big-blue-dot l-ali-sel-flex-e l-mt-20 l-jus-con-c" 
             onClick={newImpression}>
-            <p className="t-big-blue-dot-text l-mt-5">+</p>
+            <p className="t-big-blue-dot-text l-mt-2">+</p>
           </button>
         </div>
         }
@@ -77,4 +82,5 @@ export default function Home() {
       </div>
     </div>
   )
-} 
+}
+

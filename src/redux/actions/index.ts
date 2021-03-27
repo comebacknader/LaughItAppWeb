@@ -33,7 +33,7 @@ export async function loginUser(content) {
 export async function forgotPassword(content) {
     
     const response = await axios.post(
-        `${process.env.API_URL}/api/forgots`, {
+        `${process.env.API_URL}/api/forgottenpasswords`, {
             email: content.email
         })
 
