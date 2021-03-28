@@ -8,24 +8,11 @@ import { getImpressions } from '../redux/actions/impressions'
 
 export default function Impressions() {
   const [ state, setState ] = useState<'new-impression'|'idle'|'empty-impressions'>('empty-impressions')
-  const impressions = useSelector((state: any) => state.impressions) 
+  const impressions: any = useSelector((state: any) => state.impressions) 
   // const impressions: Array<string> = [] 
   useEffect(() => {
     console.log("impressions: ", impressions)
-    const promise = new Promise((resolve, reject) => {
-      reject('Imam is not coming')
-      resolve('Imam is coming')
-    })
-    promise.then((res) => {console.log(res)}, (err) => {console.log(err)})
-    checkImamArrived()
   })
-
-  const checkImamArrived = async () => {
-    let status = await new Promise((resolve, reject) => {
-      resolve('Imam is coming')
-    })
-    console.log("status: ", status)
-  }
 
   const newImpression = async () => {
     setState('new-impression')

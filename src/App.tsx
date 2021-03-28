@@ -3,8 +3,6 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Root from './Root'
 import Impressions from './components/Impressions'
-import { Provider } from 'react-redux'
-import store from './redux/store'
 import ErrorBoundary from './components/ErrorBoundary'
 
 class App extends React.Component<any, any> {
@@ -22,11 +20,9 @@ class App extends React.Component<any, any> {
 }
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Root>
-            <App />
-        </Root>
-    </Provider>
+    <Root>
+        <App />
+    </Root>
     ,
     document.getElementById("root") || document.createElement("div")
 );
