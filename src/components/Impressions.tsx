@@ -4,31 +4,37 @@ import ImpressionsList from './ImpressionsList'
 import SideBar from './SideBar'
 import '../assets/stylesheets/css/main.css'
 
-import { getImpressions } from '../redux/actions/impressions'
+import { getImpressions, createImpression } from '../redux/actions/impressions'
+import PageContainer from './PageContainer'
 
 export default function Impressions() {
   const [ state, setState ] = useState<'new-impression'|'idle'|'empty-impressions'>('empty-impressions')
-  const impressions: any = useSelector((state: any) => state.impressions) 
-  // const impressions: Array<string> = [] 
+  const impressions: Array<string> = useSelector((state: any) => { return state.impressionsReducer.impressions }) 
+  const dispatch = useDispatch()
+
   useEffect(() => {
     console.log("impressions: ", impressions)
-  })
+    dispatch(getImpressions())
+  }, [])
 
   const newImpression = async () => {
     setState('new-impression')
   }
 
-  const enterImpression = (e: any) => { 
+  const enterImpression = async (e: any) => { 
     let impression = e.target.value
-    console.log('impression: ', impression)
     if (e.key === 'Enter') {
-      console.log('impressions: ', impressions)
-      setState('idle')
+      try {
+        setState('idle')
+        dispatch(createImpression(impression))
+      } catch (error) {
+        console.log('error: ', error)
+      }
     }
   }
 
   return (
-    <div className="l-flex l-flex-dir-row l-vh-100 l-vw-100">
+    <PageContainer>
       <SideBar />
       <div className="l-flex l-flex-dir-col t-bgc-primary-gray l-vw-100">
         <div className="l-flex l-mt-40 l-ml-40 l-w-400">
@@ -67,7 +73,7 @@ export default function Impressions() {
         }
          
       </div>
-    </div>
+    </PageContainer>
   )
 }
 

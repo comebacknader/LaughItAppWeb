@@ -10,7 +10,7 @@ export default ({ children, initialState={} }) => {
     console.log("Initializing store")
     const store = createStore(
         rootReducer,
-        undefined,
+        initialState,
         composeEnhancers(applyMiddleware(promiseMiddleware["default"]))
     )
 
