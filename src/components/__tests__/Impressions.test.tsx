@@ -17,7 +17,7 @@ test('the Impressions component', async () => {
   //   composeEnhancers(applyMiddleware(promiseMiddleware["default"]))
   // )
   // render(<Provider store={store}><Impressions /></Provider>)
-  // // await waitFor(() => screen.getByText('Impressions'))
+  // // await waitFor(() => screen.queryByText('Impressions'))
 
   // expect(screen.getByText('Impressions')).toBeTruthy()
 })
