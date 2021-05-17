@@ -8,7 +8,7 @@ pipeline {
             steps {
                 echo 'Installing packages...'
                 sh 'npm install'
-                echo 'Building web application in pipeline...'
+                echo 'Building web application...'
                 sh 'npm run build'
            }
         }
