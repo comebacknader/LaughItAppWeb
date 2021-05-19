@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test step. Test step activated!'
+                echo 'Test step!'
             }
         }
         stage('Deploy to S3') {
